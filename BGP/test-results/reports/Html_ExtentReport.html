@@ -1,0 +1,1034 @@
+
+
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset='UTF-8' /> 
+	<meta name='description' content='' />
+	<meta name='robots' content='noodp, noydir' />
+	<meta name='viewport' content='width=device-width, initial-scale=1' />
+	<meta id="timeStampFormat" name="timeStampFormat" content='MMM d, yyyy hh:mm:ss a'/>
+	
+	<link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600' rel='stylesheet' type='text/css' />
+	<link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+	<link href='http://cdn.rawgit.com/extent-framework/extent-github-cdn/b65cd69/v3html/css/extent.css' type='text/css' rel='stylesheet' />
+	
+	<title>UI Automation</title>
+
+	<style type='text/css'>
+		/* json-tree */
+		.jstBracket,.jstComma,.jstValue{white-space:pre-wrap}.jstValue{font-size:10px;font-weight:400;font-family:"Lucida Console",Monaco,monospace}.jstProperty{color:#666;word-wrap:break-word}.jstBool{color:#2525CC}.jstNum{color:#D036D0}.jstNull{color:gray}.jstStr{color:#2DB669}.jstFold:after{content:' -';cursor:pointer}.jstExpand{white-space:normal}.jstExpand:after{content:' +';cursor:pointer}.jstFolded{white-space:normal!important}.jstHiddenBlock{display:none}
+			
+
+
+		
+	</style>
+	
+	<script type="text/javascript">
+		/*! json-tree - v0.2.2 - 2017-09-25, MIT LICENSE */
+		var JSONTree=function(){var n={"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#x27;","/":"&#x2F;"},t=0,r=0;this.create=function(n,t){return r+=1,N(u(n,0,!1),{class:"jstValue"})};var e=function(t){return t.replace(/[&<>'"]/g,function(t){return n[t]})},s=function(){return r+"_"+t++},u=function(n,t,r){if(null===n)return f(r?t:0);switch(typeof n){case"boolean":return l(n,r?t:0);case"number":return i(n,r?t:0);case"string":return o(n,r?t:0);default:return n instanceof Array?a(n,t,r):c(n,t,r)}},c=function(n,t,r){var e=s(),u=Object.keys(n).map(function(r){return j(r,n[r],t+1,!0)}).join(m()),c=[g("{",r?t:0,e),N(u,{id:e}),p("}",t)].join("\n");return N(c,{})},a=function(n,t,r){var e=s(),c=n.map(function(n){return u(n,t+1,!0)}).join(m());return[g("[",r?t:0,e),N(c,{id:e}),p("]",t)].join("\n")},o=function(n,t){var r=e(JSON.stringify(n));return N(v(r,t),{class:"jstStr"})},i=function(n,t){return N(v(n,t),{class:"jstNum"})},l=function(n,t){return N(v(n,t),{class:"jstBool"})},f=function(n){return N(v("null",n),{class:"jstNull"})},j=function(n,t,r){var s=v(e(JSON.stringify(n))+": ",r),c=N(u(t,r,!1),{});return N(s+c,{class:"jstProperty"})},m=function(){return N(",\n",{class:"jstComma"})},N=function(n,t){return d("span",t,n)},d=function(n,t,r){return"<"+n+Object.keys(t).map(function(n){return" "+n+'="'+t[n]+'"'}).join("")+">"+r+"</"+n+">"},g=function(n,t,r){return N(v(n,t),{class:"jstBracket"})+N("",{class:"jstFold",onclick:"JSONTree.toggle('"+r+"')"})};this.toggle=function(n){var t=document.getElementById(n),r=t.parentNode,e=t.previousElementSibling;""===t.className?(t.className="jstHiddenBlock",r.className="jstFolded",e.className="jstExpand"):(t.className="",r.className="",e.className="jstFold")};var p=function(n,t){return N(v(n,t),{})},v=function(n,t){return Array(2*t+1).join(" ")+n};return this}();
+	</script>
+</head>
+	<body class='extent standard default hide-overflow bdd-report'>
+		<div id='theme-selector' alt='Click to toggle theme. To enable by default, use theme configuration.' title='Click to toggle theme. To enable by default, use theme configuration.'>
+			<span><i class='material-icons'>desktop_windows</i></span>
+		</div>
+<nav>
+	<div class="nav-wrapper">
+		<a href="#!" class="brand-logo black"><img src="https://cdn.rawgit.com/extent-framework/extent-github-cdn/d74480e/commons/img/logo.png"></a>
+		<!-- slideout menu -->
+		<ul id='slide-out' class='side-nav fixed hide-on-med-and-down'>
+			<li class='waves-effect active'><a href='#!' view='test-view' onclick="configureView(0);chartsView('test');"><i class='material-icons'>dashboard</i></a></li>
+						<li class='waves-effect'><a href='#!' view='category-view' onclick="configureView(1)"><i class='material-icons'>label_outline</i></a></li>
+			<li class='waves-effect'><a href='#!' view='exception-view' onclick="configureView(2)"><i class='material-icons'>bug_report</i></a></li>
+			<li class='waves-effect'><a href='#!' onclick="configureView(-1);chartsView('dashboard');" view='dashboard-view'><i class='material-icons'>track_changes</i></a></li>
+		</ul>
+		<!-- report name -->
+		<span class='report-name'>UI Automation Report</span>
+		<!-- report headline -->
+		<span class='report-headline'></span>
+		<!-- nav-right -->
+		<ul id='nav-mobile' class='right hide-on-med-and-down nav-right'>
+			<a href='#!'>
+			<span class='label blue darken-3 suite-start-time'>Jun 17, 2020 05:52:04 PM</span>
+			</a>
+		</ul>
+	</div>
+</nav>		<!-- container -->
+		<div class='container'>
+<div id='test-view' class='view'>
+	<section id='controls'>
+		<div class='controls grey lighten-4'>
+			<!-- test toggle -->
+			<div class='chip transparent'>
+				<a class='dropdown-button tests-toggle' data-activates='tests-toggle' data-constrainwidth='true' data-beloworigin='true' data-hover='true' href='#'>
+				<i class='material-icons'>warning</i> Status
+				</a>
+				<ul id='tests-toggle' class='dropdown-content'>
+										<li status='pass'><a href='#!'>Pass <i class='material-icons green-text'>check_circle</i></a></li>
+					<li status='fail'><a href='#!'>Fail <i class='material-icons red-text'>cancel</i></a></li>
+					<li status='skip'><a href='#!'>Skip <i class='material-icons cyan-text'>redo</i></a></li>
+					<li class='divider'></li>
+					<li status='clear' clear='true'><a href='#!'>Clear Filters <i class='material-icons'>clear</i></a></li>
+				</ul>
+			</div>
+			<!-- test toggle -->
+			<!-- category toggle -->
+			<div class='chip transparent'>
+				<a class='dropdown-button category-toggle' data-activates='category-toggle' data-constrainwidth='false' data-beloworigin='true' data-hover='true' href='#'>
+				<i class='material-icons'>local_offer</i> Category
+				</a>
+				<ul id='category-toggle' class='dropdown-content'>
+					<li><a href='#'>@Regression</a></li>
+					<li class='divider'></li>
+					<li class='clear'><a href='#!' clear='true'>Clear Filters</a></li>
+				</ul>
+			</div>
+			<!-- category toggle -->
+			<!-- clear filters -->
+			<div class='chip transparent hide'>
+				<a class='' id='clear-filters' alt='Clear Filters' title='Clear Filters'>
+				<i class='material-icons'>close</i> Clear
+				</a>
+			</div>
+			<!-- clear filters -->
+			<!-- enable dashboard -->
+			<div id='toggle-test-view-charts' class='chip transparent'>
+				<a class='pink-text' id='enable-dashboard' alt='Enable Dashboard' title='Enable Dashboard'>
+				<i class='material-icons'>track_changes</i> Dashboard
+				</a>
+			</div>
+			<!-- enable dashboard -->
+			<!-- search -->
+			<div class='chip transparent' alt='Search Tests' title='Search Tests'>
+				<a href="#" class='search-div'>
+				<i class='material-icons'>search</i> Search
+				</a>
+				<div class='input-field left hide'>
+					<input id='search-tests' type='text' class='validate browser-default' placeholder='Search Tests...'>
+				</div>
+			</div>
+			<!-- search -->
+		</div>
+	</section>
+<div id='test-view-charts' class='subview-full'>
+    <div id='charts-row' class='row nm-v nm-h'>
+        <div class='col s12 m4 l4 np-h'>
+            <div class='card-panel nm-v'>
+                <div class='left panel-name'>Features</div>
+                <div class='chart-box' style="max-height:94px;">
+                    <canvas id='parent-analysis' width='90' height='70'></canvas>
+                </div>
+                <div class='block text-small'>
+                    <span class='tooltipped' data-position='top' data-tooltip='0%'><span class='strong'>0</span> feature(s) passed</span>
+                </div>
+                <div class='block text-small'>
+                    <span class='strong tooltipped' data-position='top' data-tooltip='100%'>1</span> feature(s) failed, <span class='strong tooltipped' data-position='top' data-tooltip='0%'>0</span> others
+                </div>
+            </div>
+        </div>
+        <div class='col s12 m4 l4 np-h'>
+            <div class='card-panel nm-v'>
+                <div class='left panel-name'>Scenarios</div>
+                <div class='chart-box' style="max-height:94px;">
+                    <canvas id='child-analysis' width='90' height='70'></canvas>
+                </div>
+                <div class='block text-small'>
+                    <span class='tooltipped' data-position='top' data-tooltip='66.667%'><span class='strong'>4</span> scenario(s) passed</span>
+                </div>
+                <div class='block text-small'>
+                    <span class='strong tooltipped' data-position='top' data-tooltip='33.333%'>2</span> scenario(s) failed, <span class='strong tooltipped' data-position='top' data-tooltip='0%'>0</span> others
+                </div>
+            </div>
+        </div>
+        <div class='col s12 m4 l4 np-h'>
+            <div class='card-panel nm-v'>
+                <div class='left panel-name'>Steps</div>
+                <div class='chart-box' style="max-height:94px;">
+                    <canvas id='grandchild-analysis' width='90' height='70'></canvas>
+                </div>
+                <div class='block text-small'>
+                    <span class='tooltipped' data-position='top' data-tooltip='70.408%'><span class='strong'>69</span> step(s) passed</span>
+                </div>
+                <div class='block text-small'>
+                    <span class='strong tooltipped' data-position='top' data-tooltip='2.041%'>2</span> step(s) failed, <span class='strong tooltipped' data-position='top' data-tooltip='27.551%'>27</span> others
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="timeline-chart" class="row nm-v nm-h">
+        <div class="col s12 m12 l12 np-h">
+            <div class="card-panel">
+                <div class='left panel-name'>Timeline (seconds)</div>
+                <div class="chart-box" style="width:98%;max-height:145px;">
+                    <canvas id="timeline" height="120"></canvas>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>	<div class='subview-left left'>
+		<div class='view-summary'>
+			<ul id='test-collection' class='test-collection'>
+				<li class='test displayed active has-leaf fail' status='fail' bdd='true' test-id='1'>
+					<div class='test-heading'>
+						<span class='test-name'>Business Grants Portal - Get new grant</span>
+						<span class='test-time'>Jun 17, 2020 05:52:04 PM</span>
+						<span class='test-status right fail'>fail</span>
+					</div>
+					<div class='test-content hide'>
+<div class="sr-filters bdd-filters">
+    <a class="btn-floating waves-effect waves-light pass green" title="pass"><i class='material-icons'>check_circle</i></a>
+    <a class="btn-floating waves-effect waves-light fail red" title="fail"><i class='material-icons'>cancel</i></a>
+    <a class="btn-floating waves-effect waves-light skip blue" title="skip"><i class='material-icons'>redo</i></a>
+    <a class="btn-floating waves-effect waves-light clear grey" title="clear"><i class='material-icons'>clear</i></a>
+</div>
+<div class='scenariooutline node' test-id='2' status='fail'>
+    <span class='duration right label'>0h 1m 15s+595ms</span>
+    <div class="bdd-test">
+        <div class="scenario-name"><span class='status fail' title='fail'><i class='material-icons'>cancel</i></span> ScenarioOutline: Get new grant - Verify Eligibility section questions, Yes/No radio buttons, warning message</div>
+        <table class='runtime-table table-striped table'><tr><td>NRIC</td><td>Username</td><td>UEN</td><td>Role</td></tr><tr><td>S1234567A</td><td>Tan ah Kow</td><td>BGPQEDEMO</td><td>Acceptor</td></tr></table>
+    </div>
+    <ul class='steps'>
+        <li test-id='3' class='node scenario fail' status='fail'>
+            <div class="step-name" title=""><span class='status fail' title='fail'><i class='material-icons'>cancel</i></span>Get new grant - Verify Eligibility section questions, Yes/No radio buttons, warning message</div>
+            <ul class='gc steps'>
+                    <li test-id='4' class='gc asterisk pass' status='pass'>
+                        <h6 class="step-name" title=""><span class='status pass' title='pass'><i class='material-icons'>check_circle</i></span>Hooks.beforeScenario(Scenario)</h6>
+                            <div class="node-step"></div>
+                    </li>
+                    <li test-id='5' class='gc given pass' status='pass'>
+                        <h6 class="step-name" title="GetNewGrantSteps.Launch_Business_Grants_Portal()"><span class='status pass' title='pass'><i class='material-icons'>check_circle</i></span>Given Launch Business Grants Portal</h6>
+                            <div class="node-step"></div>
+                    </li>
+                    <li test-id='6' class='gc when pass' status='pass'>
+                        <h6 class="step-name" title="GetNewGrantSteps.login_with_NRIC_username_UEN_Role(String,String,String,String)"><span class='status pass' title='pass'><i class='material-icons'>check_circle</i></span>When Login with NRIC "S1234567A", username "Tan ah Kow", UEN "BGPQEDEMO", Role "Acceptor"</h6>
+                            <div class="node-step"></div>
+                    </li>
+                    <li test-id='7' class='gc and pass' status='pass'>
+                        <h6 class="step-name" title="GetNewGrantSteps.proceed_to_get_new_grant()"><span class='status pass' title='pass'><i class='material-icons'>check_circle</i></span>And Proceed to get new grant</h6>
+                            <div class="node-step"></div>
+                    </li>
+                    <li test-id='8' class='gc then pass' status='pass'>
+                        <h6 class="step-name" title="GetNewGrantSteps.verify_Eligibility_section_has_eligibility_questions()"><span class='status pass' title='pass'><i class='material-icons'>check_circle</i></span>Then Verify Eligibility section has eligibility questions</h6>
+                            <div class="node-step"></div>
+                    </li>
+                    <li test-id='9' class='gc and pass' status='pass'>
+                        <h6 class="step-name" title="GetNewGrantSteps.verify_each_question_can_be_answered_Yes_or_No_through_radio_buttons()"><span class='status pass' title='pass'><i class='material-icons'>check_circle</i></span>And Verify each question can be answered Yes or No through radio buttons</h6>
+                            <div class="node-step"></div>
+                    </li>
+                    <li test-id='10' class='gc and fail' status='fail'>
+                        <h6 class="step-name" title="GetNewGrantSteps.ensure_warning_message_is_displayed_on_selecting_No_for_any_of_the_questions()"><span class='status fail' title='fail'><i class='material-icons'>cancel</i></span>And Ensure visit smart advisor warning message is displayed on selecting No for any of the questions</h6>
+                            <textarea disabled class="code-block">java.lang.AssertionError: Expected warning message: 'Visit Smart Advisor on the SME Portal for more information on other government assistance.' is not displayed. did not expect to find [true] but found [false]
+	at org.testng.Assert.fail(Assert.java:97)
+	at org.testng.Assert.failNotEquals(Assert.java:969)
+	at org.testng.Assert.assertTrue(Assert.java:43)
+	at pageObjects.MyGrantsPage.ensureWarnMsgVisitSmartAdvisor(MyGrantsPage.java:362)
+	at stepDefinitions.GetNewGrantSteps.ensure_warning_message_is_displayed_on_selecting_No_for_any_of_the_questions(GetNewGrantSteps.java:54)
+	at ✽.Ensure visit smart advisor warning message is displayed on selecting No for any of the questions(src/test/resources/features/GetNewGrant.feature:13)
+</textarea>
+                                                </li>
+                    <li test-id='11' class='gc then skip' status='skip'>
+                        <h6 class="step-name" title="GetNewGrantSteps.clicking_the_link_in_the_warning_message_will_launch_a_website_in_another_window_tab()"><span class='status skip' title='skip'><i class='material-icons'>redo</i></span>Then Clicking the link in the warning message will launch a website in another window tab</h6>
+                            <div class="node-step">Step skipped</div>
+                    </li>
+                    <li test-id='12' class='gc asterisk pass' status='pass'>
+                        <h6 class="step-name" title=""><span class='status pass' title='pass'><i class='material-icons'>check_circle</i></span>Hooks.afterScenario(Scenario)</h6>
+                            <div class="node-step"></div>
+                    </li>
+            </ul>
+        </li>
+    </ul>
+</div>
+<div class='scenariooutline node' test-id='13' status='pass'>
+    <span class='duration right label'>0h 1m 35s+204ms</span>
+    <div class="bdd-test">
+        <div class="scenario-name"><span class='status pass' title='pass'><i class='material-icons'>check_circle</i></span> ScenarioOutline: Get new grant - Complete filling the Eligibility details</div>
+        <table class='runtime-table table-striped table'><tr><td>NRIC</td><td>Username</td><td>UEN</td><td>Role</td></tr><tr><td>S1234567A</td><td>Tan ah Kow</td><td>BGPQEDEMO</td><td>Acceptor</td></tr></table>
+    </div>
+    <ul class='steps'>
+        <li test-id='14' class='node scenario pass' status='pass'>
+            <div class="step-name" title=""><span class='status pass' title='pass'><i class='material-icons'>check_circle</i></span>Get new grant - Complete filling the Eligibility details</div>
+            <ul class='gc steps'>
+                    <li test-id='15' class='gc asterisk pass' status='pass'>
+                        <h6 class="step-name" title=""><span class='status pass' title='pass'><i class='material-icons'>check_circle</i></span>Hooks.beforeScenario(Scenario)</h6>
+                            <div class="node-step"></div>
+                    </li>
+                    <li test-id='16' class='gc given pass' status='pass'>
+                        <h6 class="step-name" title="GetNewGrantSteps.Launch_Business_Grants_Portal()"><span class='status pass' title='pass'><i class='material-icons'>check_circle</i></span>Given Launch Business Grants Portal</h6>
+                            <div class="node-step"></div>
+                    </li>
+                    <li test-id='17' class='gc when pass' status='pass'>
+                        <h6 class="step-name" title="GetNewGrantSteps.login_with_NRIC_username_UEN_Role(String,String,String,String)"><span class='status pass' title='pass'><i class='material-icons'>check_circle</i></span>When Login with NRIC "S1234567A", username "Tan ah Kow", UEN "BGPQEDEMO", Role "Acceptor"</h6>
+                            <div class="node-step"></div>
+                    </li>
+                    <li test-id='18' class='gc and pass' status='pass'>
+                        <h6 class="step-name" title="GetNewGrantSteps.proceed_to_get_new_grant()"><span class='status pass' title='pass'><i class='material-icons'>check_circle</i></span>And Proceed to get new grant</h6>
+                            <div class="node-step"></div>
+                    </li>
+                    <li test-id='19' class='gc and pass' status='pass'>
+                        <h6 class="step-name" title="GetNewGrantSteps.Enter_Eligibility_details()"><span class='status pass' title='pass'><i class='material-icons'>check_circle</i></span>And Complete filling the eligibility details by selecting yes for all questions</h6>
+                            <div class="node-step"></div>
+                    </li>
+                    <li test-id='20' class='gc and pass' status='pass'>
+                        <h6 class="step-name" title="GetNewGrantSteps.clicking_save_button()"><span class='status pass' title='pass'><i class='material-icons'>check_circle</i></span>And Click on save button</h6>
+                            <div class="node-step"></div>
+                    </li>
+                    <li test-id='21' class='gc then pass' status='pass'>
+                        <h6 class="step-name" title="GetNewGrantSteps.refreshing_the_page_should_reload_the_saved_values()"><span class='status pass' title='pass'><i class='material-icons'>check_circle</i></span>Then Refreshing the page should reload the saved values in eligibility section</h6>
+                            <div class="node-step"></div>
+                    </li>
+                    <li test-id='22' class='gc asterisk pass' status='pass'>
+                        <h6 class="step-name" title=""><span class='status pass' title='pass'><i class='material-icons'>check_circle</i></span>Hooks.afterScenario(Scenario)</h6>
+                            <div class="node-step"></div>
+                    </li>
+            </ul>
+        </li>
+    </ul>
+</div>
+<div class='scenario node' test-id='23' status='pass'>
+    <div class='category-list'>
+        <span class='category label'>@Regression</span>
+    </div>
+    <span class='duration right label'>0h 1m 40s+852ms</span>
+    <div class="bdd-test">
+        <div class="scenario-name"><span class='status pass' title='pass'><i class='material-icons'>check_circle</i></span> Scenario: Get new grant - Verify auto-populate Mailing Address and Letter of Offer Addressee details</div>
+    </div>
+    <ul class='steps'>
+        <li test-id='24' class='node asterisk pass' status='pass'>
+            <div class="step-name" title=""><span class='status pass' title='pass'><i class='material-icons'>check_circle</i></span>Hooks.beforeScenario(Scenario)</div>
+                <div class="node-step"></div>
+        </li>
+        <li test-id='25' class='node given pass' status='pass'>
+            <div class="step-name" title="GetNewGrantSteps.Launch_Business_Grants_Portal()"><span class='status pass' title='pass'><i class='material-icons'>check_circle</i></span>Given Launch Business Grants Portal</div>
+                <div class="node-step"></div>
+        </li>
+        <li test-id='26' class='node when pass' status='pass'>
+            <div class="step-name" title="GetNewGrantSteps.login_with_NRIC_username_UEN_Role(String,String,String,String)"><span class='status pass' title='pass'><i class='material-icons'>check_circle</i></span>When Login with NRIC "S1234567A", username "Tan ah Kow", UEN "BGPQEDEMO", Role "Acceptor"</div>
+                <div class="node-step"></div>
+        </li>
+        <li test-id='27' class='node and pass' status='pass'>
+            <div class="step-name" title="GetNewGrantSteps.proceed_to_get_new_grant()"><span class='status pass' title='pass'><i class='material-icons'>check_circle</i></span>And Proceed to get new grant</div>
+                <div class="node-step"></div>
+        </li>
+        <li test-id='28' class='node and pass' status='pass'>
+            <div class="step-name" title="GetNewGrantSteps.Enter_Eligibility_details()"><span class='status pass' title='pass'><i class='material-icons'>check_circle</i></span>And Complete filling the eligibility details by selecting yes for all questions</div>
+                <div class="node-step"></div>
+        </li>
+        <li test-id='29' class='node and pass' status='pass'>
+            <div class="step-name" title="GetNewGrantSteps.clicking_save_button()"><span class='status pass' title='pass'><i class='material-icons'>check_circle</i></span>And Click on save button</div>
+                <div class="node-step"></div>
+        </li>
+        <li test-id='30' class='node and pass' status='pass'>
+            <div class="step-name" title="GetNewGrantSteps.click_on_next_button()"><span class='status pass' title='pass'><i class='material-icons'>check_circle</i></span>And Click on next button</div>
+                <div class="node-step"></div>
+        </li>
+        <li test-id='31' class='node and pass' status='pass'>
+            <div class="step-name" title="GetNewGrantSteps.enter_contact_person_details_name_job_title_contact_number_email_alternate_email(String,String,String,String,String)"><span class='status pass' title='pass'><i class='material-icons'>check_circle</i></span>And Enter contact person details name "Kousalya", job title "Test Engineer", contact number "12345678", email "kousalya@gmail.com", alternate email "kousal@gmail.com"</div>
+                <div class="node-step"></div>
+        </li>
+        <li test-id='32' class='node and pass' status='pass'>
+            <div class="step-name" title="GetNewGrantSteps.select_same_as_registered_address_in_Company_Profile_checkbox()"><span class='status pass' title='pass'><i class='material-icons'>check_circle</i></span>And Select same as registered address in Company Profile checkbox</div>
+                <div class="node-step"></div>
+        </li>
+        <li test-id='33' class='node then pass' status='pass'>
+            <div class="step-name" title="GetNewGrantSteps.verify_auto_populate_Mailing_Address_details()"><span class='status pass' title='pass'><i class='material-icons'>check_circle</i></span>Then Verify auto-populate Mailing Address details</div>
+                <div class="node-step"></div>
+        </li>
+        <li test-id='34' class='node and pass' status='pass'>
+            <div class="step-name" title="GetNewGrantSteps.select_same_as_main_contact_person_details()"><span class='status pass' title='pass'><i class='material-icons'>check_circle</i></span>And Select same as main contact person details</div>
+                <div class="node-step"></div>
+        </li>
+        <li test-id='35' class='node then pass' status='pass'>
+            <div class="step-name" title="GetNewGrantSteps.verify_auto_populate_Letter_of_Offer_Addressee_details()"><span class='status pass' title='pass'><i class='material-icons'>check_circle</i></span>Then Verify auto-populate Letter of Offer Addressee details</div>
+                <div class="node-step"></div>
+        </li>
+        <li test-id='36' class='node asterisk pass' status='pass'>
+            <div class="step-name" title=""><span class='status pass' title='pass'><i class='material-icons'>check_circle</i></span>Hooks.afterScenario(Scenario)</div>
+                <div class="node-step"></div>
+        </li>
+    </ul>
+</div>
+<div class='scenario node' test-id='37' status='pass'>
+    <div class='category-list'>
+        <span class='category label'>@Regression</span>
+    </div>
+    <span class='duration right label'>0h 2m 44s+248ms</span>
+    <div class="bdd-test">
+        <div class="scenario-name"><span class='status pass' title='pass'><i class='material-icons'>check_circle</i></span> Scenario: Get new grant - Search mailing address with the postal code and verify auto-populated details</div>
+    </div>
+    <ul class='steps'>
+        <li test-id='38' class='node asterisk pass' status='pass'>
+            <div class="step-name" title=""><span class='status pass' title='pass'><i class='material-icons'>check_circle</i></span>Hooks.beforeScenario(Scenario)</div>
+                <div class="node-step"></div>
+        </li>
+        <li test-id='39' class='node given pass' status='pass'>
+            <div class="step-name" title="GetNewGrantSteps.Launch_Business_Grants_Portal()"><span class='status pass' title='pass'><i class='material-icons'>check_circle</i></span>Given Launch Business Grants Portal</div>
+                <div class="node-step"></div>
+        </li>
+        <li test-id='40' class='node when pass' status='pass'>
+            <div class="step-name" title="GetNewGrantSteps.login_with_NRIC_username_UEN_Role(String,String,String,String)"><span class='status pass' title='pass'><i class='material-icons'>check_circle</i></span>When Login with NRIC "S1234567A", username "Tan ah Kow", UEN "BGPQEDEMO", Role "Acceptor"</div>
+                <div class="node-step"></div>
+        </li>
+        <li test-id='41' class='node and pass' status='pass'>
+            <div class="step-name" title="GetNewGrantSteps.proceed_to_get_new_grant()"><span class='status pass' title='pass'><i class='material-icons'>check_circle</i></span>And Proceed to get new grant</div>
+                <div class="node-step"></div>
+        </li>
+        <li test-id='42' class='node and pass' status='pass'>
+            <div class="step-name" title="GetNewGrantSteps.Enter_Eligibility_details()"><span class='status pass' title='pass'><i class='material-icons'>check_circle</i></span>And Complete filling the eligibility details by selecting yes for all questions</div>
+                <div class="node-step"></div>
+        </li>
+        <li test-id='43' class='node and pass' status='pass'>
+            <div class="step-name" title="GetNewGrantSteps.clicking_save_button()"><span class='status pass' title='pass'><i class='material-icons'>check_circle</i></span>And Click on save button</div>
+                <div class="node-step"></div>
+        </li>
+        <li test-id='44' class='node and pass' status='pass'>
+            <div class="step-name" title="GetNewGrantSteps.click_on_next_button()"><span class='status pass' title='pass'><i class='material-icons'>check_circle</i></span>And Click on next button</div>
+                <div class="node-step"></div>
+        </li>
+        <li test-id='45' class='node and pass' status='pass'>
+            <div class="step-name" title="GetNewGrantSteps.enter_contact_person_details_name_job_title_contact_number_email_alternate_email(String,String,String,String,String)"><span class='status pass' title='pass'><i class='material-icons'>check_circle</i></span>And Enter contact person details name "Kousalya", job title "Test Engineer", contact number "12345678", email "kousalya@gmail.com", alternate email "kousal@gmail.com"</div>
+                <div class="node-step"></div>
+        </li>
+        <li test-id='46' class='node and pass' status='pass'>
+            <div class="step-name" title="GetNewGrantSteps.search_mailing_address_with_the_postal_code(String)"><span class='status pass' title='pass'><i class='material-icons'>check_circle</i></span>And Search mailing address with the postal code "530439"</div>
+                <div class="node-step"></div>
+        </li>
+        <li test-id='47' class='node then pass' status='pass'>
+            <div class="step-name" title="GetNewGrantSteps.verify_auto_populate_Mailing_Address_details()"><span class='status pass' title='pass'><i class='material-icons'>check_circle</i></span>Then Verify auto-populate Mailing Address details</div>
+                <div class="node-step"></div>
+        </li>
+        <li test-id='48' class='node and pass' status='pass'>
+            <div class="step-name" title="GetNewGrantSteps.verify_Letter_of_Offer_Addressee_subsection()"><span class='status pass' title='pass'><i class='material-icons'>check_circle</i></span>And Verify Letter of Offer Addressee subsection</div>
+                <div class="node-step"></div>
+        </li>
+        <li test-id='49' class='node and pass' status='pass'>
+            <div class="step-name" title="GetNewGrantSteps.select_same_as_main_contact_person_details()"><span class='status pass' title='pass'><i class='material-icons'>check_circle</i></span>And Select same as main contact person details</div>
+                <div class="node-step"></div>
+        </li>
+        <li test-id='50' class='node then pass' status='pass'>
+            <div class="step-name" title="GetNewGrantSteps.verify_auto_populate_Letter_of_Offer_Addressee_details()"><span class='status pass' title='pass'><i class='material-icons'>check_circle</i></span>Then Verify auto-populate Letter of Offer Addressee details</div>
+                <div class="node-step"></div>
+        </li>
+        <li test-id='51' class='node and pass' status='pass'>
+            <div class="step-name" title="GetNewGrantSteps.clicking_save_button()"><span class='status pass' title='pass'><i class='material-icons'>check_circle</i></span>And Click on save button</div>
+                <div class="node-step"></div>
+        </li>
+        <li test-id='52' class='node and pass' status='pass'>
+            <div class="step-name" title="GetNewGrantSteps.refreshing_the_page_should_reload_the_saved_values_in_Contact_Details_section()"><span class='status pass' title='pass'><i class='material-icons'>check_circle</i></span>And Refreshing the page should reload the saved values in Contact Details section</div>
+                <div class="node-step"></div>
+        </li>
+        <li test-id='53' class='node asterisk pass' status='pass'>
+            <div class="step-name" title=""><span class='status pass' title='pass'><i class='material-icons'>check_circle</i></span>Hooks.afterScenario(Scenario)</div>
+                <div class="node-step"></div>
+        </li>
+    </ul>
+</div>
+<div class='scenario node' test-id='54' status='pass'>
+    <div class='category-list'>
+        <span class='category label'>@Regression</span>
+    </div>
+    <span class='duration right label'>0h 1m 5s+360ms</span>
+    <div class="bdd-test">
+        <div class="scenario-name"><span class='status pass' title='pass'><i class='material-icons'>check_circle</i></span> Scenario: Get new grant - Verify redirect to the section with the missing details and error numbers are shown in the sidebar</div>
+    </div>
+    <ul class='steps'>
+        <li test-id='55' class='node asterisk pass' status='pass'>
+            <div class="step-name" title=""><span class='status pass' title='pass'><i class='material-icons'>check_circle</i></span>Hooks.beforeScenario(Scenario)</div>
+                <div class="node-step"></div>
+        </li>
+        <li test-id='56' class='node given pass' status='pass'>
+            <div class="step-name" title="GetNewGrantSteps.Launch_Business_Grants_Portal()"><span class='status pass' title='pass'><i class='material-icons'>check_circle</i></span>Given Launch Business Grants Portal</div>
+                <div class="node-step"></div>
+        </li>
+        <li test-id='57' class='node when pass' status='pass'>
+            <div class="step-name" title="GetNewGrantSteps.login_with_NRIC_username_UEN_Role(String,String,String,String)"><span class='status pass' title='pass'><i class='material-icons'>check_circle</i></span>When Login with NRIC "S1234567A", username "Tan ah Kow", UEN "BGPQEDEMO", Role "Acceptor"</div>
+                <div class="node-step"></div>
+        </li>
+        <li test-id='58' class='node and pass' status='pass'>
+            <div class="step-name" title="GetNewGrantSteps.proceed_to_get_new_grant()"><span class='status pass' title='pass'><i class='material-icons'>check_circle</i></span>And Proceed to get new grant</div>
+                <div class="node-step"></div>
+        </li>
+        <li test-id='59' class='node and pass' status='pass'>
+            <div class="step-name" title="GetNewGrantSteps.click_on_Declare_and_Review_section()"><span class='status pass' title='pass'><i class='material-icons'>check_circle</i></span>And Click on Declare and Review section</div>
+                <div class="node-step"></div>
+        </li>
+        <li test-id='60' class='node and pass' status='pass'>
+            <div class="step-name" title="GetNewGrantSteps.click_on_review_button()"><span class='status pass' title='pass'><i class='material-icons'>check_circle</i></span>And Click on review button</div>
+                <div class="node-step"></div>
+        </li>
+        <li test-id='61' class='node then pass' status='pass'>
+            <div class="step-name" title="GetNewGrantSteps.verify_redirect_to_the_section_with_the_missing_details()"><span class='status pass' title='pass'><i class='material-icons'>check_circle</i></span>Then Verify redirect to the section with the missing details</div>
+                <div class="node-step"></div>
+        </li>
+        <li test-id='62' class='node and pass' status='pass'>
+            <div class="step-name" title="GetNewGrantSteps.verify_error_numbers_are_shown_in_the_sidebar()"><span class='status pass' title='pass'><i class='material-icons'>check_circle</i></span>And Verify error numbers are shown in the sidebar</div>
+                <div class="node-step"></div>
+        </li>
+        <li test-id='63' class='node asterisk pass' status='pass'>
+            <div class="step-name" title=""><span class='status pass' title='pass'><i class='material-icons'>check_circle</i></span>Hooks.afterScenario(Scenario)</div>
+                <div class="node-step"></div>
+        </li>
+    </ul>
+</div>
+<div class='scenario node' test-id='64' status='fail'>
+    <div class='category-list'>
+        <span class='category label'>@Regression</span>
+    </div>
+    <span class='duration right label'>0h 2m 45s+173ms</span>
+    <div class="bdd-test">
+        <div class="scenario-name"><span class='status fail' title='fail'><i class='material-icons'>cancel</i></span> Scenario: Get new grant - Submit Application</div>
+    </div>
+    <ul class='steps'>
+        <li test-id='65' class='node asterisk pass' status='pass'>
+            <div class="step-name" title=""><span class='status pass' title='pass'><i class='material-icons'>check_circle</i></span>Hooks.beforeScenario(Scenario)</div>
+                <div class="node-step"></div>
+        </li>
+        <li test-id='66' class='node given pass' status='pass'>
+            <div class="step-name" title="GetNewGrantSteps.Launch_Business_Grants_Portal()"><span class='status pass' title='pass'><i class='material-icons'>check_circle</i></span>Given Launch Business Grants Portal</div>
+                <div class="node-step"></div>
+        </li>
+        <li test-id='67' class='node when pass' status='pass'>
+            <div class="step-name" title="GetNewGrantSteps.login_with_NRIC_username_UEN_Role(String,String,String,String)"><span class='status pass' title='pass'><i class='material-icons'>check_circle</i></span>When Login with NRIC "S1234567A", username "Tan ah Kow", UEN "BGPQEDEMO", Role "Acceptor"</div>
+                <div class="node-step"></div>
+        </li>
+        <li test-id='68' class='node and pass' status='pass'>
+            <div class="step-name" title="GetNewGrantSteps.proceed_to_get_new_grant()"><span class='status pass' title='pass'><i class='material-icons'>check_circle</i></span>And Proceed to get new grant</div>
+                <div class="node-step"></div>
+        </li>
+        <li test-id='69' class='node and pass' status='pass'>
+            <div class="step-name" title="GetNewGrantSteps.Enter_Eligibility_details()"><span class='status pass' title='pass'><i class='material-icons'>check_circle</i></span>And Complete filling the eligibility details by selecting yes for all questions</div>
+                <div class="node-step"></div>
+        </li>
+        <li test-id='70' class='node and pass' status='pass'>
+            <div class="step-name" title="GetNewGrantSteps.clicking_save_button()"><span class='status pass' title='pass'><i class='material-icons'>check_circle</i></span>And Click on save button</div>
+                <div class="node-step"></div>
+        </li>
+        <li test-id='71' class='node and pass' status='pass'>
+            <div class="step-name" title="GetNewGrantSteps.click_on_next_button()"><span class='status pass' title='pass'><i class='material-icons'>check_circle</i></span>And Click on next button</div>
+                <div class="node-step"></div>
+        </li>
+        <li test-id='72' class='node and pass' status='pass'>
+            <div class="step-name" title="GetNewGrantSteps.enter_contact_person_details_name_job_title_contact_number_email_alternate_email(String,String,String,String,String)"><span class='status pass' title='pass'><i class='material-icons'>check_circle</i></span>And Enter contact person details name "Kousalya", job title "Test Engineer", contact number "12345678", email "kousalya@gmail.com", alternate email "kousal@gmail.com"</div>
+                <div class="node-step"></div>
+        </li>
+        <li test-id='73' class='node and pass' status='pass'>
+            <div class="step-name" title="GetNewGrantSteps.search_mailing_address_with_the_postal_code(String)"><span class='status pass' title='pass'><i class='material-icons'>check_circle</i></span>And Search mailing address with the postal code "530439"</div>
+                <div class="node-step"></div>
+        </li>
+        <li test-id='74' class='node then pass' status='pass'>
+            <div class="step-name" title="GetNewGrantSteps.verify_auto_populate_Mailing_Address_details()"><span class='status pass' title='pass'><i class='material-icons'>check_circle</i></span>Then Verify auto-populate Mailing Address details</div>
+                <div class="node-step"></div>
+        </li>
+        <li test-id='75' class='node and pass' status='pass'>
+            <div class="step-name" title="GetNewGrantSteps.select_same_as_main_contact_person_details()"><span class='status pass' title='pass'><i class='material-icons'>check_circle</i></span>And Select same as main contact person details</div>
+                <div class="node-step"></div>
+        </li>
+        <li test-id='76' class='node then pass' status='pass'>
+            <div class="step-name" title="GetNewGrantSteps.verify_auto_populate_Letter_of_Offer_Addressee_details()"><span class='status pass' title='pass'><i class='material-icons'>check_circle</i></span>Then Verify auto-populate Letter of Offer Addressee details</div>
+                <div class="node-step"></div>
+        </li>
+        <li test-id='77' class='node and pass' status='pass'>
+            <div class="step-name" title="GetNewGrantSteps.clicking_save_button()"><span class='status pass' title='pass'><i class='material-icons'>check_circle</i></span>And Click on save button</div>
+                <div class="node-step"></div>
+        </li>
+        <li test-id='78' class='node and pass' status='pass'>
+            <div class="step-name" title="GetNewGrantSteps.click_on_next_button()"><span class='status pass' title='pass'><i class='material-icons'>check_circle</i></span>And Click on next button</div>
+                <div class="node-step"></div>
+        </li>
+        <li test-id='79' class='node and pass' status='pass'>
+            <div class="step-name" title="GetNewGrantSteps.enter_Proposal_section_details_project_title_start_date_end_date_project_description(String,String,String,String)"><span class='status pass' title='pass'><i class='material-icons'>check_circle</i></span>And Enter Proposal section details project title "Test Title", start date "01 Jul 2020", end date "30 Nov 2020", project description "Test Project Desc"</div>
+                <div class="node-step"></div>
+        </li>
+        <li test-id='80' class='node and fail' status='fail'>
+            <div class="step-name" title="GetNewGrantSteps.select_Activity_and_Target_market(String,String)"><span class='status fail' title='fail'><i class='material-icons'>cancel</i></span>And Select Activity "FTA Consultancy" and Target market "India"</div>
+                <textarea disabled class="code-block">org.openqa.selenium.InvalidElementStateException: invalid element state
+  (Session info: chrome=83.0.4103.106)
+Build info: version: '4.0.0-alpha-3', revision: '8c567de6dc'
+System info: host: 'ITEM-S76291', ip: '10.206.0.131', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '1.8.0_241'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 83.0.4103.106, chrome: {chromedriverVersion: 83.0.4103.39 (ccbf011cb2d2b..., userDataDir: C:\Users\KKANIK~1\AppData\L...}, goog:chromeOptions: {debuggerAddress: localhost:60029}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:virtualAuthenticators: true}
+Session ID: e676e21f7df4bf7be2c767ef7bb69b62
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at java.lang.reflect.Constructor.newInstance(Constructor.java:423)
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:191)
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:125)
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:52)
+	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:161)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:83)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:576)
+	at org.openqa.selenium.remote.RemoteWebElement.execute(RemoteWebElement.java:308)
+	at org.openqa.selenium.remote.RemoteWebElement.clear(RemoteWebElement.java:126)
+	at sun.reflect.GeneratedMethodAccessor6.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.openqa.selenium.support.pagefactory.internal.LocatingElementHandler.invoke(LocatingElementHandler.java:52)
+	at com.sun.proxy.$Proxy16.clear(Unknown Source)
+	at utilities.ElementFactory.enterTextBox(ElementFactory.java:45)
+	at pageObjects.MyGrantsPage.selectActivityTargetMarket(MyGrantsPage.java:454)
+	at stepDefinitions.GetNewGrantSteps.select_Activity_and_Target_market(GetNewGrantSteps.java:155)
+	at ✽.Select Activity "FTA Consultancy" and Target market "India"(src/test/resources/features/GetNewGrant.feature:85)
+</textarea>
+        </li>
+        <li test-id='81' class='node and skip' status='skip'>
+            <div class="step-name" title="GetNewGrantSteps.select_yes_for_first_time_expanding_outside_Singapore()"><span class='status skip' title='skip'><i class='material-icons'>redo</i></span>And Select yes for first time expanding outside Singapore</div>
+                <div class="node-step">Step skipped</div>
+        </li>
+        <li test-id='82' class='node and skip' status='skip'>
+            <div class="step-name" title="GetNewGrantSteps.clicking_save_button()"><span class='status skip' title='skip'><i class='material-icons'>redo</i></span>And Click on save button</div>
+                <div class="node-step">Step skipped</div>
+        </li>
+        <li test-id='83' class='node and skip' status='skip'>
+            <div class="step-name" title="GetNewGrantSteps.click_on_next_button()"><span class='status skip' title='skip'><i class='material-icons'>redo</i></span>And Click on next button</div>
+                <div class="node-step">Step skipped</div>
+        </li>
+        <li test-id='84' class='node and skip' status='skip'>
+            <div class="step-name" title="GetNewGrantSteps.select_FY_end_date(String)"><span class='status skip' title='skip'><i class='material-icons'>redo</i></span>And Select FY end date "31 Dec 2020"</div>
+                <div class="node-step">Step skipped</div>
+        </li>
+        <li test-id='85' class='node and skip' status='skip'>
+            <div class="step-name" title="GetNewGrantSteps.enter_Overseas_sales_details_sales_sales_sales_sales(String,String,String,String)"><span class='status skip' title='skip'><i class='material-icons'>redo</i></span>And Enter Overseas sales details sales one "10", sales two "20", sales three "30", sales four "40"</div>
+                <div class="node-step">Step skipped</div>
+        </li>
+        <li test-id='86' class='node and skip' status='skip'>
+            <div class="step-name" title="GetNewGrantSteps.enter_Overseas_investments_details_investments_investments_investments_investments(String,String,String,String)"><span class='status skip' title='skip'><i class='material-icons'>redo</i></span>And Enter Overseas investments details investments one "11", investments two "22", investments three "43", investments four "44"</div>
+                <div class="node-step">Step skipped</div>
+        </li>
+        <li test-id='87' class='node and skip' status='skip'>
+            <div class="step-name" title="GetNewGrantSteps.enter_Rationale_for_projections_and_non_tangible_benefits(String,String)"><span class='status skip' title='skip'><i class='material-icons'>redo</i></span>And Enter Rationale for projections "Test rationale for projections" and non tangible benefits "Test benefits"</div>
+                <div class="node-step">Step skipped</div>
+        </li>
+        <li test-id='88' class='node and skip' status='skip'>
+            <div class="step-name" title="GetNewGrantSteps.clicking_save_button()"><span class='status skip' title='skip'><i class='material-icons'>redo</i></span>And Click on save button</div>
+                <div class="node-step">Step skipped</div>
+        </li>
+        <li test-id='89' class='node and skip' status='skip'>
+            <div class="step-name" title="GetNewGrantSteps.click_on_next_button()"><span class='status skip' title='skip'><i class='material-icons'>redo</i></span>And Click on next button</div>
+                <div class="node-step">Step skipped</div>
+        </li>
+        <li test-id='90' class='node and skip' status='skip'>
+            <div class="step-name" title="GetNewGrantSteps.enter_name_designation_nricPassport_number_nationlity_in_the_cost_section(String,String,String,String)"><span class='status skip' title='skip'><i class='material-icons'>redo</i></span>And Enter name "Kousalya", designation "Test Engineer", nricPassport number "P1234567", nationlity "Foreigner" in the cost section</div>
+                <div class="node-step">Step skipped</div>
+        </li>
+        <li test-id='91' class='node and skip' status='skip'>
+            <div class="step-name" title="GetNewGrantSteps.enter_role_in_project_project_involvement_monthlySalary_in_the_cost_section(String,String,String)"><span class='status skip' title='skip'><i class='material-icons'>redo</i></span>And Enter role in project "Tester", project involvement "3", monthlySalary "200" in the cost section</div>
+                <div class="node-step">Step skipped</div>
+        </li>
+        <li test-id='92' class='node and skip' status='skip'>
+            <div class="step-name" title="GetNewGrantSteps.clicking_save_button()"><span class='status skip' title='skip'><i class='material-icons'>redo</i></span>And Click on save button</div>
+                <div class="node-step">Step skipped</div>
+        </li>
+        <li test-id='93' class='node and skip' status='skip'>
+            <div class="step-name" title="GetNewGrantSteps.click_on_next_button()"><span class='status skip' title='skip'><i class='material-icons'>redo</i></span>And Click on next button</div>
+                <div class="node-step">Step skipped</div>
+        </li>
+        <li test-id='94' class='node and skip' status='skip'>
+            <div class="step-name" title="GetNewGrantSteps.select_No_for_declare_and_acknowledgement_terms()"><span class='status skip' title='skip'><i class='material-icons'>redo</i></span>And Select No for Declare and Acknowledgement terms</div>
+                <div class="node-step">Step skipped</div>
+        </li>
+        <li test-id='95' class='node and skip' status='skip'>
+            <div class="step-name" title="GetNewGrantSteps.select_Yes_for_comply_all_Government_rules()"><span class='status skip' title='skip'><i class='material-icons'>redo</i></span>And Select Yes for comply all Government rules</div>
+                <div class="node-step">Step skipped</div>
+        </li>
+        <li test-id='96' class='node and skip' status='skip'>
+            <div class="step-name" title="GetNewGrantSteps.click_on_Consent_and_Acknowledgement_checkbox()"><span class='status skip' title='skip'><i class='material-icons'>redo</i></span>And Click on Consent and Acknowledgement checkbox</div>
+                <div class="node-step">Step skipped</div>
+        </li>
+        <li test-id='97' class='node and skip' status='skip'>
+            <div class="step-name" title="GetNewGrantSteps.click_on_review_button()"><span class='status skip' title='skip'><i class='material-icons'>redo</i></span>And Click on review button</div>
+                <div class="node-step">Step skipped</div>
+        </li>
+        <li test-id='98' class='node then skip' status='skip'>
+            <div class="step-name" title="GetNewGrantSteps.verify_Yes_selected_for_Eligibility_section_questions_in_review_page()"><span class='status skip' title='skip'><i class='material-icons'>redo</i></span>Then Verify Yes selected for Eligibility section questions in review page</div>
+                <div class="node-step">Step skipped</div>
+        </li>
+        <li test-id='99' class='node and skip' status='skip'>
+            <div class="step-name" title="GetNewGrantSteps.verify_the_Contact_details_in_review_page()"><span class='status skip' title='skip'><i class='material-icons'>redo</i></span>And Verify the Contact details in review page</div>
+                <div class="node-step">Step skipped</div>
+        </li>
+        <li test-id='100' class='node and skip' status='skip'>
+            <div class="step-name" title="GetNewGrantSteps.verify_the_Proposal_details_in_review_page()"><span class='status skip' title='skip'><i class='material-icons'>redo</i></span>And Verify the Proposal details in review page</div>
+                <div class="node-step">Step skipped</div>
+        </li>
+        <li test-id='101' class='node and skip' status='skip'>
+            <div class="step-name" title="GetNewGrantSteps.verify_the_Business_impact_details_in_review_page()"><span class='status skip' title='skip'><i class='material-icons'>redo</i></span>And Verify the Business impact details in review page</div>
+                <div class="node-step">Step skipped</div>
+        </li>
+        <li test-id='102' class='node and skip' status='skip'>
+            <div class="step-name" title="GetNewGrantSteps.verify_the_Cost_details_in_review_page()"><span class='status skip' title='skip'><i class='material-icons'>redo</i></span>And Verify the Cost details in review page</div>
+                <div class="node-step">Step skipped</div>
+        </li>
+        <li test-id='103' class='node and skip' status='skip'>
+            <div class="step-name" title="GetNewGrantSteps.verify_No_selected_for_Declare_and_Acknowledgement_terms_in_review_page()"><span class='status skip' title='skip'><i class='material-icons'>redo</i></span>And Verify No selected for Declare and Acknowledgement terms in review page</div>
+                <div class="node-step">Step skipped</div>
+        </li>
+        <li test-id='104' class='node and skip' status='skip'>
+            <div class="step-name" title="GetNewGrantSteps.verify_Yes_selected_for_comply_all_Government_rules_Consent_and_Acknowledgement_in_review_page()"><span class='status skip' title='skip'><i class='material-icons'>redo</i></span>And Verify Yes selected for comply all Government rules, Consent and Acknowledgement in review page</div>
+                <div class="node-step">Step skipped</div>
+        </li>
+        <li test-id='105' class='node then skip' status='skip'>
+            <div class="step-name" title="GetNewGrantSteps.ensure_application_is_submitted()"><span class='status skip' title='skip'><i class='material-icons'>redo</i></span>Then Submit application and ensure</div>
+                <div class="node-step">Step skipped</div>
+        </li>
+        <li test-id='106' class='node and skip' status='skip'>
+            <div class="step-name" title="GetNewGrantSteps.ensure_My_Grants_dashboard_shows_the_application_under_processing_tab()"><span class='status skip' title='skip'><i class='material-icons'>redo</i></span>And Ensure My Grants dashboard shows the application under processing tab</div>
+                <div class="node-step">Step skipped</div>
+        </li>
+        <li test-id='107' class='node asterisk pass' status='pass'>
+            <div class="step-name" title=""><span class='status pass' title='pass'><i class='material-icons'>check_circle</i></span>Hooks.afterScenario(Scenario)</div>
+                <div class="node-step"></div>
+        </li>
+    </ul>
+</div>
+					</div>
+				</li>
+			</ul>
+		</div>
+	</div>
+	<!-- subview left -->
+	<div class='subview-right left'>
+		<div class='view-summary'>
+			<div id='step-filters' class="right sr-filters">
+				<a class="btn-floating waves-effect waves-light green" status="pass" alt="pass" title="pass"><i class="material-icons">check_circle</i></a>
+				<a class="btn-floating waves-effect waves-light red" status="fail" alt="fail" title="fail"><i class="material-icons">cancel</i></a>
+				<a class="btn-floating waves-effect waves-light red darken-4" status="fatal" alt="fatal" title="fatal"><i class="material-icons">cancel</i></a>
+				<a class="btn-floating waves-effect waves-light pink text-lighten-1" status="error" alt="error" title="error"><i class="material-icons">error</i></a>
+				<a class="btn-floating waves-effect waves-light orange" alt="warning" status="warning" title="warning"><i class="material-icons">warning</i></a>
+				<a class="btn-floating waves-effect waves-light teal" status="skip" alt="skip" title="skip"><i class="material-icons">redo</i></a>
+				<a class="btn-floating waves-effect waves-light grey" status="clear" alt="Clear filters" title="Clear filters"><i class="material-icons">clear</i></a>
+			</div>
+			<h5 class='test-name'></h5>
+		</div>
+	</div>
+	<!-- subview right -->
+</div>
+<!-- test view --><div id='category-view' class='view hide'>
+	<section id='controls'>
+		<div class='controls grey lighten-4'>
+			<!-- search -->
+			<div class='chip transparent' alt='Search Tests' title='Search Tests'>
+				<a href="#" class='search-div'>
+				<i class='material-icons'>search</i> Search
+				</a>
+				<div class='input-field left hide'>
+					<input id='search-tests' type='text' class='validate browser-default' placeholder='Search Tests...'>
+				</div>
+			</div>
+			<!-- search -->
+		</div>
+	</section>
+	<div class='subview-left left'>
+		<div class='view-summary'>
+			<ul id='category-collection' class='category-collection'>
+				<li class='category displayed active'>
+					<div class='category-heading'>
+						<span class='category-name'>@Regression</span>
+						<span class='category-status right'>
+						<span class='label pass'>4</span>
+						<span class='label fail'>3</span>
+						</span>
+					</div>
+					<div class='category-content hide'>
+						<div class='category-status-counts'>
+							<span status="pass" class='label green accent-4 white-text'>Passed: 4</span>
+							<span status="fail" class='label red lighten-1 white-text'>Failed: 3</span>
+							
+						</div>
+						<div class='category-tests'>
+							<table class='bordered table-results'>
+								<thead>
+									<tr>
+										<th>Timestamp</th>
+										<th>TestName</th>
+										<th>Status</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td>Jun 17, 2020 05:52:04 PM</td>
+										<td class='linked' test-id='1'>Business Grants Portal - Get new grant</td>
+										<td><span class='test-status fail'>fail</span></td>
+									</tr>
+									<tr>
+										<td>Jun 17, 2020 05:52:04 PM</td>
+										<td class='linked' test-id='3'>Business Grants Portal - Get new grant.Get new grant - Verify Eligibility section questions, Yes/No radio buttons, warning message.Get new grant - Verify Eligibility section questions, Yes/No radio buttons, warning message</td>
+										<td><span class='test-status fail'>fail</span></td>
+									</tr>
+									<tr>
+										<td>Jun 17, 2020 05:53:20 PM</td>
+										<td class='linked' test-id='14'>Business Grants Portal - Get new grant.Get new grant - Complete filling the Eligibility details.Get new grant - Complete filling the Eligibility details</td>
+										<td><span class='test-status pass'>pass</span></td>
+									</tr>
+									<tr>
+										<td>Jun 17, 2020 05:54:55 PM</td>
+										<td class='linked' test-id='23'>Business Grants Portal - Get new grant.Get new grant - Verify auto-populate Mailing Address and Letter of Offer Addressee details</td>
+										<td><span class='test-status pass'>pass</span></td>
+									</tr>
+									<tr>
+										<td>Jun 17, 2020 05:56:36 PM</td>
+										<td class='linked' test-id='37'>Business Grants Portal - Get new grant.Get new grant - Search mailing address with the postal code and verify auto-populated details</td>
+										<td><span class='test-status pass'>pass</span></td>
+									</tr>
+									<tr>
+										<td>Jun 17, 2020 05:59:20 PM</td>
+										<td class='linked' test-id='54'>Business Grants Portal - Get new grant.Get new grant - Verify redirect to the section with the missing details and error numbers are shown in the sidebar</td>
+										<td><span class='test-status pass'>pass</span></td>
+									</tr>
+									<tr>
+										<td>Jun 17, 2020 06:00:25 PM</td>
+										<td class='linked' test-id='64'>Business Grants Portal - Get new grant.Get new grant - Submit Application</td>
+										<td><span class='test-status fail'>fail</span></td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
+				</li>
+			</ul>
+		</div>
+	</div>
+	<div class='subview-right left'>
+		<div class='view-summary'>
+			<h5 class='category-name'></h5>
+		</div>
+	</div>
+</div>
+<!-- category view --><div id='exception-view' class='view hide'>
+	<section id='controls'>
+		<div class='controls grey lighten-4'>
+			<!-- search -->
+			<div class='chip transparent' alt='Search Tests' title='Search Tests'>
+				<a href="#" class='search-div'>
+				<i class='material-icons'>search</i> Search
+				</a>
+				<div class='input-field left hide'>
+					<input id='search-tests' type='text' class='validate browser-default' placeholder='Search Tests...'>
+				</div>
+			</div>
+			<!-- search -->
+		</div>
+	</section>
+	<div class='subview-left left'>
+		<div class='view-summary'>
+			<ul id='exception-collection' class='exception-collection'>
+				<li class='exception displayed active'>
+					<div class='exception-heading'>
+						<span class='exception-name'>java.lang.AssertionError</span>
+						<span class='exception-count right'><span class='label red lighten-1 white-text'>1</span></span>
+					</div>
+					<div class='exception-content hide'>
+						<div class='exception-tests'>
+							<table class='bordered table-results'>
+								<thead>
+									<tr>
+										<th>Timestamp</th>
+										<th>TestName</th>
+										<th>Status</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td>Jun 17, 2020 05:53:19 PM</td>
+										<td class='linked' test-id='10'>Business Grants Portal - Get new grant.Get new grant - Verify Eligibility section questions, Yes/No radio buttons, warning message.Get new grant - Verify Eligibility section questions, Yes/No radio buttons, warning message.And Ensure visit smart advisor warning message is displayed on selecting No for any of the questions</td>
+										<td>
+											<textarea disabled class="code-block">java.lang.AssertionError: Expected warning message: 'Visit Smart Advisor on the SME Portal for more information on other government assistance.' is not displayed. did not expect to find [true] but found [false]
+	at org.testng.Assert.fail(Assert.java:97)
+	at org.testng.Assert.failNotEquals(Assert.java:969)
+	at org.testng.Assert.assertTrue(Assert.java:43)
+	at pageObjects.MyGrantsPage.ensureWarnMsgVisitSmartAdvisor(MyGrantsPage.java:362)
+	at stepDefinitions.GetNewGrantSteps.ensure_warning_message_is_displayed_on_selecting_No_for_any_of_the_questions(GetNewGrantSteps.java:54)
+	at ✽.Ensure visit smart advisor warning message is displayed on selecting No for any of the questions(src/test/resources/features/GetNewGrant.feature:13)
+</textarea>
+										</td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
+				</li>
+				<li class='exception displayed active'>
+					<div class='exception-heading'>
+						<span class='exception-name'>org.openqa.selenium.InvalidElementStateException</span>
+						<span class='exception-count right'><span class='label red lighten-1 white-text'>1</span></span>
+					</div>
+					<div class='exception-content hide'>
+						<div class='exception-tests'>
+							<table class='bordered table-results'>
+								<thead>
+									<tr>
+										<th>Timestamp</th>
+										<th>TestName</th>
+										<th>Status</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td>Jun 17, 2020 06:03:10 PM</td>
+										<td class='linked' test-id='80'>Business Grants Portal - Get new grant.Get new grant - Submit Application.And Select Activity "FTA Consultancy" and Target market "India"</td>
+										<td>
+											<textarea disabled class="code-block">org.openqa.selenium.InvalidElementStateException: invalid element state
+  (Session info: chrome=83.0.4103.106)
+Build info: version: '4.0.0-alpha-3', revision: '8c567de6dc'
+System info: host: 'ITEM-S76291', ip: '10.206.0.131', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '1.8.0_241'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 83.0.4103.106, chrome: {chromedriverVersion: 83.0.4103.39 (ccbf011cb2d2b..., userDataDir: C:\Users\KKANIK~1\AppData\L...}, goog:chromeOptions: {debuggerAddress: localhost:60029}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:virtualAuthenticators: true}
+Session ID: e676e21f7df4bf7be2c767ef7bb69b62
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at java.lang.reflect.Constructor.newInstance(Constructor.java:423)
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:191)
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:125)
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:52)
+	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:161)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:83)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:576)
+	at org.openqa.selenium.remote.RemoteWebElement.execute(RemoteWebElement.java:308)
+	at org.openqa.selenium.remote.RemoteWebElement.clear(RemoteWebElement.java:126)
+	at sun.reflect.GeneratedMethodAccessor6.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.openqa.selenium.support.pagefactory.internal.LocatingElementHandler.invoke(LocatingElementHandler.java:52)
+	at com.sun.proxy.$Proxy16.clear(Unknown Source)
+	at utilities.ElementFactory.enterTextBox(ElementFactory.java:45)
+	at pageObjects.MyGrantsPage.selectActivityTargetMarket(MyGrantsPage.java:454)
+	at stepDefinitions.GetNewGrantSteps.select_Activity_and_Target_market(GetNewGrantSteps.java:155)
+	at ✽.Select Activity "FTA Consultancy" and Target market "India"(src/test/resources/features/GetNewGrant.feature:85)
+</textarea>
+										</td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
+				</li>
+			</ul>
+		</div>
+	</div>
+	<div class='subview-right left'>
+		<div class='view-summary'>
+			<h5 class='exception-name'></h5>
+		</div>
+	</div>
+</div>
+<!-- exception view --><div id='dashboard-view' class='view hide'>
+	<div class='card-panel transparent np-v'>
+		<h5>Dashboard</h5>
+
+		<div class='row'>
+			<div class='col s2'>
+				<div class='card-panel r'>
+					Features
+					<div class='panel-lead'>1</div>
+				</div>
+			</div>
+			<div class='col s2'>
+				<div class='card-panel r'>
+					Scenarios
+					<div class='panel-lead'>6</div>
+				</div>
+			</div>
+			<div class='col s2'>
+				<div class='card-panel r'>
+					Steps
+					<div class='panel-lead'>98</div>
+				</div>
+			</div>
+			<div class='col s2'>
+				<div class='card-panel r'>
+					Start
+					<div class='panel-lead'>Jun 17, 2020 05:52:04 PM</div>
+				</div>
+			</div>
+			<div class='col s2'>
+				<div class='card-panel r'>
+			 		End
+			 		<div class='panel-lead'>Jun 17, 2020 06:03:11 PM</div>
+				</div>
+			</div>
+			<div class='col s2'>
+				<div class='card-panel r'>
+					Time Taken
+					<div class='panel-lead'>0h 11m 6s+883ms</div>
+				</div>
+			</div>
+			<div class='col s6'>
+				<div class='card-panel dashboard-categories'>
+					<span class='right label cyan white-text'>Categories</span><p>&nbsp;</p>
+					
+					<table>
+						<tr>
+							<th>Name</th>
+							<th>Passed</th>
+							<th>Failed</th>
+							<th>Others</th>
+							<th>Passed %</th>
+						</tr>
+						<tr>
+							<td>@Regression</td>
+							<td>4</td>
+							<td>3</td>
+							<td>0</td>
+							<td>
+									57.143%
+							</td>
+						</tr>
+					</table>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- dashboard view -->
+<!-- testrunner-logs view -->		</div>
+		<!-- container -->
+		<script>
+			var statusGroup = {
+                parentCount: 1,
+				passParent: 0,
+				failParent: 1,
+				fatalParent: 0,
+				errorParent: 0,
+				warningParent: 0,
+				skipParent: 0,
+				exceptionsParent: 1,
+				childCount: 6,
+				passChild: 4,
+				failChild: 2,
+				fatalChild: 0,
+				errorChild: 0,
+				warningChild: 0,
+				skipChild: 0,
+				infoChild: 0,
+				debugChild: 0,
+				exceptionsChild: 2,
+				grandChildCount: 98,
+				passGrandChild: 69,
+				failGrandChild: 2,
+				fatalGrandChild: 0,
+				errorGrandChild: 0,
+				warningGrandChild: 0,
+				skipGrandChild: 27,
+				infoGrandChild: 0,
+				debugGrandChild: 0,
+				exceptionsGrandChild: 29,
+			};
+		</script>
+		<script>
+			var timeline = {
+			        "Business Grants Portal - Get new grant":666.48
+			};
+		</script>
+		<script src='http://cdn.rawgit.com/extent-framework/extent-github-cdn/b65cd69/v3html/js/extent.js' type='text/javascript'></script>
+		<script type='text/javascript'>
+			
+
+
+$(document).ready(function() {
+});
+
+		
+		</script>
+	</body>
+</html>

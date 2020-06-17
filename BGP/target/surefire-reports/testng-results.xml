@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results skipped="0" failed="2" ignored="0" total="6" passed="4">
+  <reporter-output>
+  </reporter-output>
+  <suite name="UISuite" duration-ms="668734" started-at="2020-06-17T17:52:03 SGT" finished-at="2020-06-17T18:03:12 SGT">
+    <groups>
+      <group name="cucumber">
+        <method signature="TestRunner.runScenario(cucumber.api.testng.PickleEventWrapper, cucumber.api.testng.CucumberFeatureWrapper)[pri:0, instance:testRunner.TestRunner@3c0f93f1]" name="runScenario" class="testRunner.TestRunner"/>
+      </group> <!-- cucumber -->
+    </groups>
+    <test name="UITest" duration-ms="668734" started-at="2020-06-17T17:52:03 SGT" finished-at="2020-06-17T18:03:12 SGT">
+      <class name="testRunner.TestRunner">
+        <test-method status="PASS" signature="setUpClass()[pri:0, instance:testRunner.TestRunner@3c0f93f1]" name="setUpClass" is-config="true" duration-ms="320" started-at="2020-06-17T17:52:03 SGT" finished-at="2020-06-17T17:52:03 SGT">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUpClass -->
+        <test-method status="FAIL" signature="runScenario(cucumber.api.testng.PickleEventWrapper, cucumber.api.testng.CucumberFeatureWrapper)[pri:0, instance:testRunner.TestRunner@3c0f93f1]" name="runScenario" duration-ms="76339" started-at="2020-06-17T17:52:03 SGT" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2020-06-17T17:53:20 SGT">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA["Get new grant - Verify Eligibility section questions, Yes/No radio buttons, warning message"]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA["Business Grants Portal - Get new grant"]]>
+              </value>
+            </param>
+          </params>
+          <exception class="java.lang.AssertionError">
+            <message>
+              <![CDATA[Expected warning message: 'Visit Smart Advisor on the SME Portal for more information on other government assistance.' is not displayed. did not expect to find [true] but found [false]]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[java.lang.AssertionError: Expected warning message: 'Visit Smart Advisor on the SME Portal for more information on other government assistance.' is not displayed. did not expect to find [true] but found [false]
+at org.testng.Assert.fail(Assert.java:97)
+at org.testng.Assert.failNotEquals(Assert.java:969)
+at org.testng.Assert.assertTrue(Assert.java:43)
+at pageObjects.MyGrantsPage.ensureWarnMsgVisitSmartAdvisor(MyGrantsPage.java:362)
+at stepDefinitions.GetNewGrantSteps.ensure_warning_message_is_displayed_on_selecting_No_for_any_of_the_questions(GetNewGrantSteps.java:54)
+at ✽.Ensure visit smart advisor warning message is displayed on selecting No for any of the questions(src/test/resources/features/GetNewGrant.feature:13)
+]]>
+            </full-stacktrace>
+          </exception> <!-- java.lang.AssertionError -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- runScenario -->
+        <test-method status="PASS" signature="runScenario(cucumber.api.testng.PickleEventWrapper, cucumber.api.testng.CucumberFeatureWrapper)[pri:0, instance:testRunner.TestRunner@3c0f93f1]" name="runScenario" duration-ms="95208" started-at="2020-06-17T17:53:20 SGT" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2020-06-17T17:54:55 SGT">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA["Get new grant - Complete filling the Eligibility details"]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA["Business Grants Portal - Get new grant"]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- runScenario -->
+        <test-method status="PASS" signature="runScenario(cucumber.api.testng.PickleEventWrapper, cucumber.api.testng.CucumberFeatureWrapper)[pri:0, instance:testRunner.TestRunner@3c0f93f1]" name="runScenario" duration-ms="100856" started-at="2020-06-17T17:54:55 SGT" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2020-06-17T17:56:36 SGT">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA["Get new grant - Verify auto-populate Mailing Address and Letter of Offer Addressee details"]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA["Business Grants Portal - Get new grant"]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- runScenario -->
+        <test-method status="PASS" signature="runScenario(cucumber.api.testng.PickleEventWrapper, cucumber.api.testng.CucumberFeatureWrapper)[pri:0, instance:testRunner.TestRunner@3c0f93f1]" name="runScenario" duration-ms="164253" started-at="2020-06-17T17:56:36 SGT" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2020-06-17T17:59:20 SGT">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA["Get new grant - Search mailing address with the postal code and verify auto-populated details"]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA["Business Grants Portal - Get new grant"]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- runScenario -->
+        <test-method status="PASS" signature="runScenario(cucumber.api.testng.PickleEventWrapper, cucumber.api.testng.CucumberFeatureWrapper)[pri:0, instance:testRunner.TestRunner@3c0f93f1]" name="runScenario" duration-ms="65360" started-at="2020-06-17T17:59:20 SGT" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2020-06-17T18:00:25 SGT">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA["Get new grant - Verify redirect to the section with the missing details and error numbers are shown in the sidebar"]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA["Business Grants Portal - Get new grant"]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- runScenario -->
+        <test-method status="FAIL" signature="runScenario(cucumber.api.testng.PickleEventWrapper, cucumber.api.testng.CucumberFeatureWrapper)[pri:0, instance:testRunner.TestRunner@3c0f93f1]" name="runScenario" duration-ms="165184" started-at="2020-06-17T18:00:25 SGT" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2020-06-17T18:03:11 SGT">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA["Get new grant - Submit Application"]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA["Business Grants Portal - Get new grant"]]>
+              </value>
+            </param>
+          </params>
+          <exception class="org.openqa.selenium.InvalidElementStateException">
+            <message>
+              <![CDATA[invalid element state
+  (Session info: chrome=83.0.4103.106)
+Build info: version: '4.0.0-alpha-3', revision: '8c567de6dc'
+System info: host: 'ITEM-S76291', ip: '10.206.0.131', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '1.8.0_241'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 83.0.4103.106, chrome: {chromedriverVersion: 83.0.4103.39 (ccbf011cb2d2b..., userDataDir: C:\Users\KKANIK~1\AppData\L...}, goog:chromeOptions: {debuggerAddress: localhost:60029}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:virtualAuthenticators: true}
+Session ID: e676e21f7df4bf7be2c767ef7bb69b62]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[org.openqa.selenium.InvalidElementStateException: invalid element state
+  (Session info: chrome=83.0.4103.106)
+Build info: version: '4.0.0-alpha-3', revision: '8c567de6dc'
+System info: host: 'ITEM-S76291', ip: '10.206.0.131', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '1.8.0_241'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 83.0.4103.106, chrome: {chromedriverVersion: 83.0.4103.39 (ccbf011cb2d2b..., userDataDir: C:\Users\KKANIK~1\AppData\L...}, goog:chromeOptions: {debuggerAddress: localhost:60029}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:virtualAuthenticators: true}
+Session ID: e676e21f7df4bf7be2c767ef7bb69b62
+at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
+at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+at java.lang.reflect.Constructor.newInstance(Constructor.java:423)
+at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:191)
+at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:125)
+at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:52)
+at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:161)
+at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:83)
+at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:576)
+at org.openqa.selenium.remote.RemoteWebElement.execute(RemoteWebElement.java:308)
+at org.openqa.selenium.remote.RemoteWebElement.clear(RemoteWebElement.java:126)
+at sun.reflect.GeneratedMethodAccessor6.invoke(Unknown Source)
+at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+at java.lang.reflect.Method.invoke(Method.java:498)
+at org.openqa.selenium.support.pagefactory.internal.LocatingElementHandler.invoke(LocatingElementHandler.java:52)
+at com.sun.proxy.$Proxy16.clear(Unknown Source)
+at utilities.ElementFactory.enterTextBox(ElementFactory.java:45)
+at pageObjects.MyGrantsPage.selectActivityTargetMarket(MyGrantsPage.java:454)
+at stepDefinitions.GetNewGrantSteps.select_Activity_and_Target_market(GetNewGrantSteps.java:155)
+at ✽.Select Activity "FTA Consultancy" and Target market "India"(src/test/resources/features/GetNewGrant.feature:85)
+]]>
+            </full-stacktrace>
+          </exception> <!-- org.openqa.selenium.InvalidElementStateException -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- runScenario -->
+        <test-method status="PASS" signature="tearDownClass()[pri:0, instance:testRunner.TestRunner@3c0f93f1]" name="tearDownClass" is-config="true" duration-ms="1030" started-at="2020-06-17T18:03:11 SGT" finished-at="2020-06-17T18:03:12 SGT">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDownClass -->
+      </class> <!-- testRunner.TestRunner -->
+    </test> <!-- UITest -->
+  </suite> <!-- UISuite -->
+</testng-results>

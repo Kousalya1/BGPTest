@@ -1,0 +1,179 @@
+<html>
+<head>
+<title>TestNG:  UITest</title>
+<link href="../testng.css" rel="stylesheet" type="text/css" />
+<link href="../my-testng.css" rel="stylesheet" type="text/css" />
+
+<style type="text/css">
+.log { display: none;} 
+.stack-trace { display: none;} 
+</style>
+<script type="text/javascript">
+<!--
+function flip(e) {
+  current = e.style.display;
+  if (current == 'block') {
+    e.style.display = 'none';
+    return 0;
+  }
+  else {
+    e.style.display = 'block';
+    return 1;
+  }
+}
+
+function toggleBox(szDivId, elem, msg1, msg2)
+{
+  var res = -1;  if (document.getElementById) {
+    res = flip(document.getElementById(szDivId));
+  }
+  else if (document.all) {
+    // this is the way old msie versions work
+    res = flip(document.all[szDivId]);
+  }
+  if(elem) {
+    if(res == 0) elem.innerHTML = msg1; else elem.innerHTML = msg2;
+  }
+
+}
+
+function toggleAllBoxes() {
+  if (document.getElementsByTagName) {
+    d = document.getElementsByTagName('div');
+    for (i = 0; i < d.length; i++) {
+      if (d[i].className == 'log') {
+        flip(d[i]);
+      }
+    }
+  }
+}
+
+// -->
+</script>
+
+</head>
+<body>
+<h2 align='center'>UITest</h2><table border='1' align="center">
+<tr>
+<td>Tests passed/Failed/Skipped:</td><td>4/2/0</td>
+</tr><tr>
+<td>Started on:</td><td>Wed Jun 17 17:52:03 SGT 2020</td>
+</tr>
+<tr><td>Total time:</td><td>668 seconds (668734 ms)</td>
+</tr><tr>
+<td>Included groups:</td><td></td>
+</tr><tr>
+<td>Excluded groups:</td><td></td>
+</tr>
+</table><p/>
+<small><i>(Hover the method name to see the test class name)</i></small><p/>
+<table width='100%' border='1' class='invocation-failed'>
+<tr><td colspan='4' align='center'><b>FAILED TESTS</b></td></tr>
+<tr><td><b>Test method</b></td>
+<td width="30%"><b>Exception</b></td>
+<td width="10%"><b>Time (seconds)</b></td>
+<td><b>Instance</b></td>
+</tr>
+<tr>
+<td title='testRunner.TestRunner.runScenario()'><b>runScenario</b><br>Test class: testRunner.TestRunner<br>Test method: Runs Cucumber Scenarios<br>Parameters: "Get new grant - Verify Eligibility section questions, Yes/No radio buttons, warning message", "Business Grants Portal - Get new grant"</td>
+<td><div><pre>java.lang.AssertionError: Expected warning message: &apos;Visit Smart Advisor on the SME Portal for more information on other government assistance.&apos; is not displayed. did not expect to find [true] but found [false]
+	at pageObjects.MyGrantsPage.ensureWarnMsgVisitSmartAdvisor(MyGrantsPage.java:362)
+	at stepDefinitions.GetNewGrantSteps.ensure_warning_message_is_displayed_on_selecting_No_for_any_of_the_questions(GetNewGrantSteps.java:54)
+	at ✽.Ensure visit smart advisor warning message is displayed on selecting No for any of the questions(src/test/resources/features/GetNewGrant.feature:13)
+... Removed 3 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace646204091", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace646204091'><pre>java.lang.AssertionError: Expected warning message: &apos;Visit Smart Advisor on the SME Portal for more information on other government assistance.&apos; is not displayed. did not expect to find [true] but found [false]
+	at org.testng.Assert.fail(Assert.java:97)
+	at org.testng.Assert.failNotEquals(Assert.java:969)
+	at org.testng.Assert.assertTrue(Assert.java:43)
+	at pageObjects.MyGrantsPage.ensureWarnMsgVisitSmartAdvisor(MyGrantsPage.java:362)
+	at stepDefinitions.GetNewGrantSteps.ensure_warning_message_is_displayed_on_selecting_No_for_any_of_the_questions(GetNewGrantSteps.java:54)
+	at ✽.Ensure visit smart advisor warning message is displayed on selecting No for any of the questions(src/test/resources/features/GetNewGrant.feature:13)
+</pre></div></td>
+<td>76</td>
+<td>testRunner.TestRunner@3c0f93f1</td></tr>
+<tr>
+<td title='testRunner.TestRunner.runScenario()'><b>runScenario</b><br>Test class: testRunner.TestRunner<br>Test method: Runs Cucumber Scenarios<br>Parameters: "Get new grant - Submit Application", "Business Grants Portal - Get new grant"</td>
+<td><div><pre>org.openqa.selenium.InvalidElementStateException: invalid element state
+  (Session info: chrome=83.0.4103.106)
+Build info: version: &apos;4.0.0-alpha-3&apos;, revision: &apos;8c567de6dc&apos;
+System info: host: &apos;ITEM-S76291&apos;, ip: &apos;10.206.0.131&apos;, os.name: &apos;Windows 10&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;1.8.0_241&apos;
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 83.0.4103.106, chrome: {chromedriverVersion: 83.0.4103.39 (ccbf011cb2d2b..., userDataDir: C:\Users\KKANIK~1\AppData\L...}, goog:chromeOptions: {debuggerAddress: localhost:60029}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:virtualAuthenticators: true}
+Session ID: e676e21f7df4bf7be2c767ef7bb69b62
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:191)
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:125)
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:52)
+	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:161)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:83)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:576)
+	at org.openqa.selenium.remote.RemoteWebElement.execute(RemoteWebElement.java:308)
+	at org.openqa.selenium.remote.RemoteWebElement.clear(RemoteWebElement.java:126)
+	at org.openqa.selenium.support.pagefactory.internal.LocatingElementHandler.invoke(LocatingElementHandler.java:52)
+	at com.sun.proxy.$Proxy16.clear(Unknown Source)
+	at utilities.ElementFactory.enterTextBox(ElementFactory.java:45)
+	at pageObjects.MyGrantsPage.selectActivityTargetMarket(MyGrantsPage.java:454)
+	at stepDefinitions.GetNewGrantSteps.select_Activity_and_Target_market(GetNewGrantSteps.java:155)
+	at ✽.Select Activity &quot;FTA Consultancy&quot; and Target market &quot;India&quot;(src/test/resources/features/GetNewGrant.feature:85)
+... Removed 7 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace2009584628", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace2009584628'><pre>org.openqa.selenium.InvalidElementStateException: invalid element state
+  (Session info: chrome=83.0.4103.106)
+Build info: version: &apos;4.0.0-alpha-3&apos;, revision: &apos;8c567de6dc&apos;
+System info: host: &apos;ITEM-S76291&apos;, ip: &apos;10.206.0.131&apos;, os.name: &apos;Windows 10&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;1.8.0_241&apos;
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 83.0.4103.106, chrome: {chromedriverVersion: 83.0.4103.39 (ccbf011cb2d2b..., userDataDir: C:\Users\KKANIK~1\AppData\L...}, goog:chromeOptions: {debuggerAddress: localhost:60029}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:virtualAuthenticators: true}
+Session ID: e676e21f7df4bf7be2c767ef7bb69b62
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at java.lang.reflect.Constructor.newInstance(Constructor.java:423)
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:191)
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:125)
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:52)
+	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:161)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:83)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:576)
+	at org.openqa.selenium.remote.RemoteWebElement.execute(RemoteWebElement.java:308)
+	at org.openqa.selenium.remote.RemoteWebElement.clear(RemoteWebElement.java:126)
+	at sun.reflect.GeneratedMethodAccessor6.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.openqa.selenium.support.pagefactory.internal.LocatingElementHandler.invoke(LocatingElementHandler.java:52)
+	at com.sun.proxy.$Proxy16.clear(Unknown Source)
+	at utilities.ElementFactory.enterTextBox(ElementFactory.java:45)
+	at pageObjects.MyGrantsPage.selectActivityTargetMarket(MyGrantsPage.java:454)
+	at stepDefinitions.GetNewGrantSteps.select_Activity_and_Target_market(GetNewGrantSteps.java:155)
+	at ✽.Select Activity &quot;FTA Consultancy&quot; and Target market &quot;India&quot;(src/test/resources/features/GetNewGrant.feature:85)
+</pre></div></td>
+<td>165</td>
+<td>testRunner.TestRunner@3c0f93f1</td></tr>
+</table><p>
+<table width='100%' border='1' class='invocation-passed'>
+<tr><td colspan='4' align='center'><b>PASSED TESTS</b></td></tr>
+<tr><td><b>Test method</b></td>
+<td width="30%"><b>Exception</b></td>
+<td width="10%"><b>Time (seconds)</b></td>
+<td><b>Instance</b></td>
+</tr>
+<tr>
+<td title='testRunner.TestRunner.runScenario()'><b>runScenario</b><br>Test class: testRunner.TestRunner<br>Test method: Runs Cucumber Scenarios<br>Parameters: "Get new grant - Complete filling the Eligibility details", "Business Grants Portal - Get new grant"</td>
+<td></td>
+<td>95</td>
+<td>testRunner.TestRunner@3c0f93f1</td></tr>
+<tr>
+<td title='testRunner.TestRunner.runScenario()'><b>runScenario</b><br>Test class: testRunner.TestRunner<br>Test method: Runs Cucumber Scenarios<br>Parameters: "Get new grant - Verify auto-populate Mailing Address and Letter of Offer Addressee details", "Business Grants Portal - Get new grant"</td>
+<td></td>
+<td>100</td>
+<td>testRunner.TestRunner@3c0f93f1</td></tr>
+<tr>
+<td title='testRunner.TestRunner.runScenario()'><b>runScenario</b><br>Test class: testRunner.TestRunner<br>Test method: Runs Cucumber Scenarios<br>Parameters: "Get new grant - Search mailing address with the postal code and verify auto-populated details", "Business Grants Portal - Get new grant"</td>
+<td></td>
+<td>164</td>
+<td>testRunner.TestRunner@3c0f93f1</td></tr>
+<tr>
+<td title='testRunner.TestRunner.runScenario()'><b>runScenario</b><br>Test class: testRunner.TestRunner<br>Test method: Runs Cucumber Scenarios<br>Parameters: "Get new grant - Verify redirect to the section with the missing details and error numbers are shown in the sidebar", "Business Grants Portal - Get new grant"</td>
+<td></td>
+<td>65</td>
+<td>testRunner.TestRunner@3c0f93f1</td></tr>
+</table><p>
+</body>
+</html>

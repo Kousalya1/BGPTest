@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<testsuite failures="2" name="cucumber.runtime.formatter.JUnitFormatter" skipped="0" tests="6" time="666.701454">
+<testcase classname="Business Grants Portal - Get new grant" name="Get new grant - Verify Eligibility section questions, Yes/No radio buttons, warning message" time="75.859869">
+<failure message="java.lang.AssertionError: Expected warning message: 'Visit Smart Advisor on the SME Portal for more information on other government assistance.' is not displayed. did not expect to find [true] but found [false]&#13;&#10;&#9;at org.testng.Assert.fail(Assert.java:97)&#13;&#10;&#9;at org.testng.Assert.failNotEquals(Assert.java:969)&#13;&#10;&#9;at org.testng.Assert.assertTrue(Assert.java:43)&#13;&#10;&#9;at pageObjects.MyGrantsPage.ensureWarnMsgVisitSmartAdvisor(MyGrantsPage.java:362)&#13;&#10;&#9;at stepDefinitions.GetNewGrantSteps.ensure_warning_message_is_displayed_on_selecting_No_for_any_of_the_questions(GetNewGrantSteps.java:54)&#13;&#10;&#9;at ✽.Ensure visit smart advisor warning message is displayed on selecting No for any of the questions(src/test/resources/features/GetNewGrant.feature:13)&#13;&#10;"><![CDATA[Given Launch Business Grants Portal.........................................passed
+When Login with NRIC "S1234567A", username "Tan ah Kow", UEN "BGPQEDEMO", Role "Acceptor".passed
+And Proceed to get new grant................................................passed
+Then Verify Eligibility section has eligibility questions...................passed
+And Verify each question can be answered Yes or No through radio buttons....passed
+And Ensure visit smart advisor warning message is displayed on selecting No for any of the questions.failed
+Then Clicking the link in the warning message will launch a website in another window tab.skipped
+
+StackTrace:
+java.lang.AssertionError: Expected warning message: 'Visit Smart Advisor on the SME Portal for more information on other government assistance.' is not displayed. did not expect to find [true] but found [false]
+	at org.testng.Assert.fail(Assert.java:97)
+	at org.testng.Assert.failNotEquals(Assert.java:969)
+	at org.testng.Assert.assertTrue(Assert.java:43)
+	at pageObjects.MyGrantsPage.ensureWarnMsgVisitSmartAdvisor(MyGrantsPage.java:362)
+	at stepDefinitions.GetNewGrantSteps.ensure_warning_message_is_displayed_on_selecting_No_for_any_of_the_questions(GetNewGrantSteps.java:54)
+	at ✽.Ensure visit smart advisor warning message is displayed on selecting No for any of the questions(src/test/resources/features/GetNewGrant.feature:13)
+]]></failure>
+</testcase>
+<testcase classname="Business Grants Portal - Get new grant" name="Get new grant - Complete filling the Eligibility details" time="95.205391">
+<system-out><![CDATA[Given Launch Business Grants Portal.........................................passed
+When Login with NRIC "S1234567A", username "Tan ah Kow", UEN "BGPQEDEMO", Role "Acceptor".passed
+And Proceed to get new grant................................................passed
+And Complete filling the eligibility details by selecting yes for all questions.passed
+And Click on save button....................................................passed
+Then Refreshing the page should reload the saved values in eligibility section.passed
+]]></system-out>
+</testcase>
+<testcase classname="Business Grants Portal - Get new grant" name="Get new grant - Verify auto-populate Mailing Address and Letter of Offer Addressee details" time="100.852852">
+<system-out><![CDATA[Given Launch Business Grants Portal.........................................passed
+When Login with NRIC "S1234567A", username "Tan ah Kow", UEN "BGPQEDEMO", Role "Acceptor".passed
+And Proceed to get new grant................................................passed
+And Complete filling the eligibility details by selecting yes for all questions.passed
+And Click on save button....................................................passed
+And Click on next button....................................................passed
+And Enter contact person details name "Kousalya", job title "Test Engineer", contact number "12345678", email "kousalya@gmail.com", alternate email "kousal@gmail.com".passed
+And Select same as registered address in Company Profile checkbox...........passed
+Then Verify auto-populate Mailing Address details...........................passed
+And Select same as main contact person details..............................passed
+Then Verify auto-populate Letter of Offer Addressee details.................passed
+]]></system-out>
+</testcase>
+<testcase classname="Business Grants Portal - Get new grant" name="Get new grant - Search mailing address with the postal code and verify auto-populated details" time="164.24915">
+<system-out><![CDATA[Given Launch Business Grants Portal.........................................passed
+When Login with NRIC "S1234567A", username "Tan ah Kow", UEN "BGPQEDEMO", Role "Acceptor".passed
+And Proceed to get new grant................................................passed
+And Complete filling the eligibility details by selecting yes for all questions.passed
+And Click on save button....................................................passed
+And Click on next button....................................................passed
+And Enter contact person details name "Kousalya", job title "Test Engineer", contact number "12345678", email "kousalya@gmail.com", alternate email "kousal@gmail.com".passed
+And Search mailing address with the postal code "530439"....................passed
+Then Verify auto-populate Mailing Address details...........................passed
+And Verify Letter of Offer Addressee subsection.............................passed
+And Select same as main contact person details..............................passed
+Then Verify auto-populate Letter of Offer Addressee details.................passed
+And Click on save button....................................................passed
+And Refreshing the page should reload the saved values in Contact Details section.passed
+]]></system-out>
+</testcase>
+<testcase classname="Business Grants Portal - Get new grant" name="Get new grant - Verify redirect to the section with the missing details and error numbers are shown in the sidebar" time="65.359762">
+<system-out><![CDATA[Given Launch Business Grants Portal.........................................passed
+When Login with NRIC "S1234567A", username "Tan ah Kow", UEN "BGPQEDEMO", Role "Acceptor".passed
+And Proceed to get new grant................................................passed
+And Click on Declare and Review section.....................................passed
+And Click on review button..................................................passed
+Then Verify redirect to the section with the missing details................passed
+And Verify error numbers are shown in the sidebar...........................passed
+]]></system-out>
+</testcase>
+<testcase classname="Business Grants Portal - Get new grant" name="Get new grant - Submit Application" time="165.17443">
+<failure message="org.openqa.selenium.InvalidElementStateException: invalid element state&#10;  (Session info: chrome=83.0.4103.106)&#10;Build info: version: '4.0.0-alpha-3', revision: '8c567de6dc'&#10;System info: host: 'ITEM-S76291', ip: '10.206.0.131', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '1.8.0_241'&#10;Driver info: org.openqa.selenium.chrome.ChromeDriver&#10;Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 83.0.4103.106, chrome: {chromedriverVersion: 83.0.4103.39 (ccbf011cb2d2b..., userDataDir: C:\Users\KKANIK~1\AppData\L...}, goog:chromeOptions: {debuggerAddress: localhost:60029}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:virtualAuthenticators: true}&#10;Session ID: e676e21f7df4bf7be2c767ef7bb69b62&#13;&#10;&#9;at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)&#13;&#10;&#9;at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)&#13;&#10;&#9;at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)&#13;&#10;&#9;at java.lang.reflect.Constructor.newInstance(Constructor.java:423)&#13;&#10;&#9;at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:191)&#13;&#10;&#9;at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:125)&#13;&#10;&#9;at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:52)&#13;&#10;&#9;at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:161)&#13;&#10;&#9;at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:83)&#13;&#10;&#9;at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:576)&#13;&#10;&#9;at org.openqa.selenium.remote.RemoteWebElement.execute(RemoteWebElement.java:308)&#13;&#10;&#9;at org.openqa.selenium.remote.RemoteWebElement.clear(RemoteWebElement.java:126)&#13;&#10;&#9;at sun.reflect.GeneratedMethodAccessor6.invoke(Unknown Source)&#13;&#10;&#9;at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)&#13;&#10;&#9;at java.lang.reflect.Method.invoke(Method.java:498)&#13;&#10;&#9;at org.openqa.selenium.support.pagefactory.internal.LocatingElementHandler.invoke(LocatingElementHandler.java:52)&#13;&#10;&#9;at com.sun.proxy.$Proxy16.clear(Unknown Source)&#13;&#10;&#9;at utilities.ElementFactory.enterTextBox(ElementFactory.java:45)&#13;&#10;&#9;at pageObjects.MyGrantsPage.selectActivityTargetMarket(MyGrantsPage.java:454)&#13;&#10;&#9;at stepDefinitions.GetNewGrantSteps.select_Activity_and_Target_market(GetNewGrantSteps.java:155)&#13;&#10;&#9;at ✽.Select Activity &quot;FTA Consultancy&quot; and Target market &quot;India&quot;(src/test/resources/features/GetNewGrant.feature:85)&#13;&#10;"><![CDATA[Given Launch Business Grants Portal.........................................passed
+When Login with NRIC "S1234567A", username "Tan ah Kow", UEN "BGPQEDEMO", Role "Acceptor".passed
+And Proceed to get new grant................................................passed
+And Complete filling the eligibility details by selecting yes for all questions.passed
+And Click on save button....................................................passed
+And Click on next button....................................................passed
+And Enter contact person details name "Kousalya", job title "Test Engineer", contact number "12345678", email "kousalya@gmail.com", alternate email "kousal@gmail.com".passed
+And Search mailing address with the postal code "530439"....................passed
+Then Verify auto-populate Mailing Address details...........................passed
+And Select same as main contact person details..............................passed
+Then Verify auto-populate Letter of Offer Addressee details.................passed
+And Click on save button....................................................passed
+And Click on next button....................................................passed
+And Enter Proposal section details project title "Test Title", start date "01 Jul 2020", end date "30 Nov 2020", project description "Test Project Desc".passed
+And Select Activity "FTA Consultancy" and Target market "India".............failed
+And Select yes for first time expanding outside Singapore...................skipped
+And Click on save button....................................................skipped
+And Click on next button....................................................skipped
+And Select FY end date "31 Dec 2020"........................................skipped
+And Enter Overseas sales details sales one "10", sales two "20", sales three "30", sales four "40".skipped
+And Enter Overseas investments details investments one "11", investments two "22", investments three "43", investments four "44".skipped
+And Enter Rationale for projections "Test rationale for projections" and non tangible benefits "Test benefits".skipped
+And Click on save button....................................................skipped
+And Click on next button....................................................skipped
+And Enter name "Kousalya", designation "Test Engineer", nricPassport number "P1234567", nationlity "Foreigner" in the cost section.skipped
+And Enter role in project "Tester", project involvement "3", monthlySalary "200" in the cost section.skipped
+And Click on save button....................................................skipped
+And Click on next button....................................................skipped
+And Select No for Declare and Acknowledgement terms.........................skipped
+And Select Yes for comply all Government rules..............................skipped
+And Click on Consent and Acknowledgement checkbox...........................skipped
+And Click on review button..................................................skipped
+Then Verify Yes selected for Eligibility section questions in review page...skipped
+And Verify the Contact details in review page...............................skipped
+And Verify the Proposal details in review page..............................skipped
+And Verify the Business impact details in review page.......................skipped
+And Verify the Cost details in review page..................................skipped
+And Verify No selected for Declare and Acknowledgement terms in review page.skipped
+And Verify Yes selected for comply all Government rules, Consent and Acknowledgement in review page.skipped
+Then Submit application and ensure..........................................skipped
+And Ensure My Grants dashboard shows the application under processing tab...skipped
+
+StackTrace:
+org.openqa.selenium.InvalidElementStateException: invalid element state
+  (Session info: chrome=83.0.4103.106)
+Build info: version: '4.0.0-alpha-3', revision: '8c567de6dc'
+System info: host: 'ITEM-S76291', ip: '10.206.0.131', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '1.8.0_241'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 83.0.4103.106, chrome: {chromedriverVersion: 83.0.4103.39 (ccbf011cb2d2b..., userDataDir: C:\Users\KKANIK~1\AppData\L...}, goog:chromeOptions: {debuggerAddress: localhost:60029}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:virtualAuthenticators: true}
+Session ID: e676e21f7df4bf7be2c767ef7bb69b62
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at java.lang.reflect.Constructor.newInstance(Constructor.java:423)
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:191)
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:125)
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:52)
+	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:161)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:83)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:576)
+	at org.openqa.selenium.remote.RemoteWebElement.execute(RemoteWebElement.java:308)
+	at org.openqa.selenium.remote.RemoteWebElement.clear(RemoteWebElement.java:126)
+	at sun.reflect.GeneratedMethodAccessor6.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.openqa.selenium.support.pagefactory.internal.LocatingElementHandler.invoke(LocatingElementHandler.java:52)
+	at com.sun.proxy.$Proxy16.clear(Unknown Source)
+	at utilities.ElementFactory.enterTextBox(ElementFactory.java:45)
+	at pageObjects.MyGrantsPage.selectActivityTargetMarket(MyGrantsPage.java:454)
+	at stepDefinitions.GetNewGrantSteps.select_Activity_and_Target_market(GetNewGrantSteps.java:155)
+	at ✽.Select Activity "FTA Consultancy" and Target market "India"(src/test/resources/features/GetNewGrant.feature:85)
+]]></failure>
+</testcase>
+</testsuite>
